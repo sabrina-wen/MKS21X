@@ -13,3 +13,4 @@ other commands (helpful but not necessary):
 2. git log filename.txt --> see all of your commits!
 3. git checkout master --> in this case, we return to he master branch. checkout is used for echking out files, commits, and branches (basically you can check out previous versions, update versions to match a specific commit, and other cool stuff (v5)
 
+hey ho wassup
