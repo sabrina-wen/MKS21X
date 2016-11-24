@@ -4,3 +4,5 @@ from github to our computer (v1)
 2. git add file.txt --> this adds a file (v2)
 -do stuff to file (if working in terminal: use nano filename.extension, save)
 3. git commit -m "message here" --> commits/makes change to a version for a file (v3)
+4. git status --> not necessary, but checks what's going on/what will be pushed
+5. git push --> pushes or syncs file to github! (v4)
