@@ -1,0 +1,3 @@
+commands we know:
+1. git clone *insert ssh link here from github* --> this will clone the files
+from github to our computer (v1)
