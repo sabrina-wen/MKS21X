@@ -2,3 +2,5 @@ commands we know:
 1. git clone *insert ssh link here from github* --> this will clone the files
 from github to our computer (v1)
 2. git add file.txt --> this adds a file (v2)
+-do stuff to file (if working in terminal: use nano filename.extension, save)
+3. git commit -m "message here" --> commits/makes change to a version for a file (v3)
