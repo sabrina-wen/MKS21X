@@ -1,3 +1,4 @@
 commands we know:
 1. git clone *insert ssh link here from github* --> this will clone the files
 from github to our computer (v1)
+2. git add file.txt --> this adds a file (v2)
