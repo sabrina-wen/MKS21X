@@ -1,12 +1,10 @@
 public class Book {
-    String author;
-    String title;
-    int ISBN;
+    private String author;
+    private String title;
+    private int ISBN;
 
     public Book() {
-	author;
-	title;
-	ISBN;
+	// null constructor
     }
     
     public Book (String author, String title, int ISBN) {
