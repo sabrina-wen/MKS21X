@@ -1,0 +1,18 @@
+commands we know:
+1. git clone *insert ssh link here from github* --> this will clone the files
+from github to our computer (v1)
+2. git add file.txt --> this adds a file (v2)
+-do stuff to file (if working in terminal: use nano filename.extension, save)
+3. git commit -m "message here" --> commits/makes change to a version for a file (v3)
+4. git status --> not necessary, but checks what's going on/what will be pushed
+5. git push --> pushes or syncs file to github! (v4)
+-repeat steps 2 - 5 as needed until you are done editing code-
+
+other commands (helpful but not necessary):
+1. git add -A --> not actually a diff command from git add file.txt, but this will add all of your files
+2. git log filename.txt --> see all of your commits!
+3. git checkout master --> in this case, we return to he master branch. checkout is used for echking out files, commits, and branches (basically you can check out previous versions, update versions to match a specific commit, and other cool stuff (v5)
+
+hey ho wassup
+idk why we need to add bogus commands bc we already tested but i assume this has a purpose
+it's mad late peace out friends
