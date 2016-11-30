@@ -1,13 +1,13 @@
 public class Book {
     private String author;
     private String title;
-    private int ISBN;
+    private String ISBN;
 
     public Book() {
 	// empty constructor woo
     }
     
-    public Book (String author, String title, int ISBN) {
+    public Book (String author, String title, String ISBN) {
 	this.author = author;
 	this.title = title;
 	this.ISBN = ISBN;
