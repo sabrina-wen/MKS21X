@@ -33,7 +33,11 @@ public class Book {
 	return ISBN;
     }
 
-    public void setISBN (int newISBN) {
+    public void setISBN (String newISBN) {
 	ISBN = newISBN;
+    }
+
+    public String toString() {
+	return "Title: " + getTitle() + "; Author: " + getAuthor() + "l ISBN: " + getISBN();
     }
 }
