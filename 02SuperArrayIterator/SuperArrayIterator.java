@@ -1,6 +1,7 @@
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
-public class SuperArrayIterator implements Iterable<String> {
+public class SuperArrayIterator implements Iterator<String> {
     private SuperArray ary;
     private int pos;
     
@@ -14,11 +15,11 @@ public class SuperArrayIterator implements Iterable<String> {
     }
 
     public boolean hasNext() {
-	return pos < ary.size() - 1;
+	return pos < ary.size();
     }
 
     public String next() {
-	if ( hasNext() ) {
+	if (hasNext()) {
 	    pos++;
 	    return ary.get(pos + 1);
 	}
@@ -30,4 +31,5 @@ public class SuperArrayIterator implements Iterable<String> {
     public void remove() {
 	throw new UnsupportedOperationException();
     }
+    
 }
