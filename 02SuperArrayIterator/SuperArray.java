@@ -1,4 +1,7 @@
-public class SuperArray {
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+
+public class SuperArray implements Iterable<String> {
     private String[] data;
     private int size;
 
@@ -166,6 +169,10 @@ public class SuperArray {
 	}
 	data = temp;
 	size = data.length;
+    }
+
+    public Iterator<String> iterator(){
+	return new SuperArrayIterator(this);
     }
 		       
 }
