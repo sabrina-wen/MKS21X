@@ -21,7 +21,7 @@ public class SuperArrayIterator implements Iterator<String> {
     public String next() {
 	if (hasNext()) {
 	    pos++;
-	    return ary.get(pos + 1);
+	    return ary.get(pos - 1);
 	}
 	else {
 	    throw new NoSuchElementException();
