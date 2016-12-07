@@ -11,7 +11,8 @@ public class Barcode implements Comparable<Barcode>{
   public Barcode(String zip) {
       _zip = zip;
       _checkDigit = 0;
-      if ( (zip.length() != 5) || 
+      if (zip.length() != 5) {
+	  throw new 
   }
 
 // postcondition: Creates a copy of a bar code.
