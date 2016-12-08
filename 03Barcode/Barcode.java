@@ -23,8 +23,10 @@ public class Barcode {
   }
 
 // postcondition: Creates a copy of a bar code.
-    //public Barcode clone() {
-    //}
+    public Barcode clone() {
+	Barcode barz = new Barcode(_zip);
+	return barz;
+    }
 
 
 // postcondition: computes and returns the check sum for _zip
@@ -46,5 +48,7 @@ public class Barcode {
 	System.out.println(uno);
 	// Barcode dos = new Barcode("1&204"); should be an  error
 	// Barcode tres = new Barcode("hey!!!!!"); should be an error
+	Barcode dos = new Barcode("11111");
+	System.out.println(dos.clone());
     }
 }
