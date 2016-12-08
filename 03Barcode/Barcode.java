@@ -2,7 +2,6 @@ public class Barcode {
 //implements Comparable<Barcode> {
 // instance variables
    private String _zip;
-   private int _checkDigit;
    private static String[] codes = {"||:::0", ":::||1", "::|:|2", "::||:3", 
 				    ":|::|4", ":|:|:5", ":||::6", "|:::|7",
 				    "|::|:8", "|:|::9"};
@@ -14,7 +13,6 @@ public class Barcode {
 //               _zip and _checkDigit are initialized.
   public Barcode(String zip) {
       _zip = zip;
-      _checkDigit = 0;
       if (_zip.length() != 5) {
 	  throw new IllegalArgumentException();
       }
@@ -29,15 +27,21 @@ public class Barcode {
      private int checkSum() {
 	 int sum = 0;
 	 for (int i = 0; i < _zip.length(); i++) {
-	     sum += i;
+	     sum += Integer.parseInt(_zip.substring(i, i + 1));
 	 }
 	 sum %= 10;
 	 return sum;
      }
 
+    public String getCheckSum() {
+	String sum = "" + checkSum();
+	return sum;
+    }
+
 //postcondition: format zip + check digit + Barcode 
 //ex. "084518  |||:::|::|::|::|:|:|::::|||::|:|"      
      public String toString() {
+	 _zip += getCheckSum();
 	 String barcodeStr = "|";
 	 for (int i = 0; i < _zip.length(); i++) {
 	     // should return index of i from the string and then the index of 
