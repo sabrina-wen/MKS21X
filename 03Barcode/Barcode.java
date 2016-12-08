@@ -3,6 +3,9 @@ public class Barcode {
 // instance variables
    private String _zip;
    private int _checkDigit;
+   private static String[] codes = {"||:::0", ":::||1", "::|:|2", "::||:3", 
+				    ":|::|4", ":|:|:5", ":||::6", "|:::|7",
+				    "|::|:8", "|:|::9"};
 
 // constructors
 // precondtion: _zip.length() = 5 and zip contains only digits.
@@ -22,13 +25,6 @@ public class Barcode {
       }
   }
 
-// postcondition: Creates a copy of a bar code.
-    public Barcode clone() {
-	Barcode barz = new Barcode(_zip);
-	return barz;
-    }
-
-
 // postcondition: computes and returns the check sum for _zip
      private int checkSum() {
 	 int sum = 0;
@@ -44,30 +40,9 @@ public class Barcode {
      public String toString() {
 	 String barcodeStr = "|";
 	 for (int i = 0; i < _zip.length(); i++) {
-	     switch(i) {
-	     case 0: barcodeStr += "||:::";
-		 break;
-	     case 1: barcodeStr += ":::||";
-		 break;
-	     case 2: barcodeStr += "::|:|";
-		 break;
-	     case 3: barcodeStr += "::||:";
-		 break;
-	     case 4: barcodeStr += ":|::|";
-		 break;
-	     case 5: barcodeStr += ":|:|:";
-		 break;
-	     case 6: barcodeStr += ":||::";
-		 break;
-	     case 7: barcodeStr += "|:::|";
-		 break;
-	     case 8: barcodeStr += "|::|:";
-		 break;
-	     case 9: barcodeStr += "|:|::";
-		 break;
-	     default: barcodeStr = "dis should not be here...";
-		 break;
-	     }
+	     // should return index of i from the string and then the index of 
+	     // whatever that value is from the array codes
+	     barcodeStr += codes[Integer.parseInt(_zip.substring(i, i + 1))];
          }
 	 barcodeStr += "|";
 	 return barcodeStr;
@@ -87,6 +62,7 @@ public class Barcode {
 	System.out.println(dos.clone()); */
 	Barcode tres = new Barcode("08451");
 	System.out.println(tres.toString());
+	System.out.println("Should return |||:::|::|::|::|:|:|::::|||");    
 	
     }
 }
