@@ -2,9 +2,13 @@ public class Barcode {
 //implements Comparable<Barcode> {
 // instance variables
    private String _zip;
-   private static String[] codes = {"||:::0", ":::||1", "::|:|2", "::||:3", 
-				    ":|::|4", ":|:|:5", ":||::6", "|:::|7",
-				    "|::|:8", "|:|::9"};
+   private static String[] codes = {"||:::", ":::||", "::|:|", "::||:", 
+				    ":|::|", ":|:|:", ":||::", "|:::|",
+				    "|::|:", "|:|::"};
+    // use this array for debugging purposes:
+    // private static String[] codes = {"||:::0", ":::||1", "::|:|2", "::||:3", 
+    //				    ":|::|4", ":|:|:5", ":||::6", "|:::|7",
+    //				    "|::|:8", "|:|::9"};
 
 // constructors
 // precondtion: _zip.length() = 5 and zip contains only digits.
@@ -54,19 +58,22 @@ public class Barcode {
 
 
 // postcondition: compares the zip + checkdigit, in numerical order. 
-    // public int compareTo(Barcode other) {
-    //}
+     public int compareTo(Barcode other) {
+	 return Integer.compare(Integer.parseInt(this._zip), Integer.parseInt(other._zip));
+					     
+    }
 
     public static void main (String[] args) {
-	/* Barcode uno = new Barcode("18345");
-	System.out.println(uno.toString());
-	// Barcode dos = new Barcode("1&204"); should be an  error
+        // Barcode uno = new Barcode("1&204"); should return an error
 	// Barcode tres = new Barcode("hey!!!!!"); should be an error
-	Barcode dos = new Barcode("11111");
-	System.out.println(dos.clone()); */
+	// Barcode cuatro = new Barcode("1903"); error
+	// Barcode cinco = new Barcode("482045829434"); error
+	Barcode dos = new Barcode("15925");
+	System.out.println(dos.toString());
 	Barcode tres = new Barcode("08451");
 	System.out.println(tres.toString());
-	System.out.println("Should return |||:::|::|::|::|:|:|::::|||");    
+	System.out.println("|||:::|::|::|::|:|:|::::|||::|:| <-- should return ");
+	System.out.println(tres.compareTo(dos));
 	
-    }
+	} 
 }
