@@ -1,14 +1,14 @@
 public class Barcode {
 //implements Comparable<Barcode> {
 // instance variables
-   private String _zip;
-    /* private static String[] codes = {"||:::", ":::||", "::|:|", "::||:", 
+   private static String _zip;
+    private static String[] codes = {"||:::", ":::||", "::|:|", "::||:", 
 				    ":|::|", ":|:|:", ":||::", "|:::|",
-				    "|::|:", "|:|::"}; */
+				    "|::|:", "|:|::"}; 
     // use this array for debugging purposes:
-    private static String[] codes = {"||:::0", ":::||1", "::|:|2", "::||:3", 
-   				    ":|::|4", ":|:|:5", ":||::6", "|:::|7",
-  				    "|::|:8", "|:|::9"};
+    // private static String[] codes = {"||:::0", ":::||1", "::|:|2", "::||:3", 
+    //				    ":|::|4", ":|:|:5", ":||::6", "|:::|7",
+    //				    "|::|:8", "|:|::9"};
 
 // constructors
 // precondtion: _zip.length() = 5 and zip contains only digits.
@@ -28,7 +28,7 @@ public class Barcode {
   }
 
 // postcondition: computes and returns the check sum for _zip
-     private int checkSum() {
+     private static int checkSum() {
 	 int sum = 0;
 	 for (int i = 0; i < _zip.length(); i++) {
 	     sum += Integer.parseInt(_zip.substring(i, i + 1));
@@ -37,14 +37,14 @@ public class Barcode {
 	 return sum;
      }
 
-    public String getCheckSum() {
+    public static String getCheckSum() {
 	String sum = "" + checkSum();
 	return sum;
     }
 
 //postcondition: Barcode (includes getCheckSum()!)
 //ex. "|||:::|::|::|::|:|:|::::|||::|:|"      
-     public String toCode(String zip) {
+     public static String toCode(String zip) {
 	 zip += getCheckSum();
 	 String barcodeStr = "|";
 	 for (int i = 0; i < zip.length(); i++) {
@@ -61,6 +61,17 @@ public class Barcode {
     public String toString() {
         String barcodeStr = _zip + getCheckSum() +  " " + toCode(_zip);
 	return barcodeStr; 
+    }
+
+    // g
+    public static String toZip(String code) {
+	String newCode = code.substring(1, 27);
+	String barcodeNum = "";
+	for (int i = 0; i < newCode.length(); i += 5) {
+	    barcodeNum += newCode.substring(i, i + 5);
+	}
+
+	return barcodeNum;
     }
 
 
@@ -88,6 +99,10 @@ public class Barcode {
        	System.out.println(tres.toString());
 	System.out.println("|||:::|::|::|::|:|:|::::|||::|:| <-- should return ");
 	System.out.println(tres.compareTo(dos));
+	Barcode cuatro = new Barcode("91047");
+	System.out.println(cuatro.toCode("91047"));
+	System.out.println("next output should be 91047");
+       	System.out.println(cuatro.toZip("||:|::9:::||1||:::0:|::|4|:::|7:::||1|"));
 	
 	} 
 }
