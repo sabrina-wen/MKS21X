@@ -59,7 +59,7 @@ public class Barcode {
 //postcondition: format zip + check digit + Barcode 
 //ex. "084518  |||:::|::|::|::|:|:|::::|||::|:|" 
     public String toString() {
-        String barcodeStr = _zip + "\n" + toCode(_zip);
+        String barcodeStr = _zip + getCheckSum() +  " " + toCode(_zip);
 	return barcodeStr; 
     }
 
@@ -82,9 +82,11 @@ public class Barcode {
 	// Barcode cinco = new Barcode("482045829434"); error
 	Barcode dos = new Barcode("15925");
 	System.out.println(dos.toCode("15925"));
+	System.out.println(dos.toString());
 	Barcode tres = new Barcode("08451");
 	System.out.println(tres.toCode("09451"));
-	System.out.println("08451 |||:::|::|::|::|:|:|::::|||::|:| <-- should return ");
+       	System.out.println(tres.toString());
+	System.out.println("|||:::|::|::|::|:|:|::::|||::|:| <-- should return ");
 	System.out.println(tres.compareTo(dos));
 	
 	} 
