@@ -2,6 +2,7 @@ public class Barcode {
 //implements Comparable<Barcode> {
 // instance variables
    private static String _zip;
+
     private static String[] codes = {"||:::", ":::||", "::|:|", "::||:", 
 				    ":|::|", ":|:|:", ":||::", "|:::|",
 				    "|::|:", "|:|::"}; 
@@ -63,14 +64,45 @@ public class Barcode {
 	return barcodeStr; 
     }
 
-    // g
+    public static String getCodesIndex(String barSection) {
+	String bar = "";
+	for (int i = 0; i < codes.length; i++) {
+	    if (codes[i].equals(barSection)) {
+		bar += "" + i;
+	    }
+	}
+	return bar;
+    }
+    
     public static String toZip(String code) {
-	String newCode = code.substring(1, 27);
 	String barcodeNum = "";
-	for (int i = 0; i < newCode.length(); i += 5) {
-	    barcodeNum += newCode.substring(i, i + 5);
+
+	if (code.length() != 32) {
+	    throw new IllegalArgumentException("length of code is not 32...");
 	}
 
+	if (code.charAt(0) != '|' || code.charAt(31) != '|') {
+	    throw new IllegalArgumentException("where those guardrails at tho");
+	}
+	
+      	if (!(getCheckSum().equals(getCodesIndex(code.substring(26, 31))))) {
+	    throw new IllegalArgumentException("Checksum is invalid. Try again!");
+        }
+
+	for (int i = 0; i < code.length(); i++) {
+	    if ((code.charAt(i) != '|') && (code.charAt(i) != ':')) {
+	        throw new IllegalArgumentException("Invalid characters! Try again.");
+	    }
+	}
+	
+	for (int i = 1; i < code.length() - 6; i += 5) {
+	    barcodeNum += getCodesIndex(code.substring(i, i + 5));
+	}
+
+	if (barcodeNum.length() != 5) {
+	    throw new IllegalArgumentException("Codes are off...");
+	}
+	
 	return barcodeNum;
     }
 
@@ -102,7 +134,10 @@ public class Barcode {
 	Barcode cuatro = new Barcode("91047");
 	System.out.println(cuatro.toCode("91047"));
 	System.out.println("next output should be 91047");
-       	System.out.println(cuatro.toZip("||:|::9:::||1||:::0:|::|4|:::|7:::||1|"));
-	
+       	System.out.println(cuatro.toZip("||:|:::::||||::::|::||:::|:::|||"));
+       	// System.out.println(cuatro.toZip(":|:|:::::||||::::|::||:::|:::||:"));
+	// System.out.println(cuatro.toZip("||:|:::::||||::::|::||:::||:|::|"));
+	// System.out.println(cuatro.toZip("hitherethisshouldbeanerrorokjava"));
+       	// System.out.println(cuatro.toZip("||||||:::||||::::|::||:::|:::|||"));
 	} 
 }
