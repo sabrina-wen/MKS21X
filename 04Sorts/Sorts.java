@@ -29,6 +29,15 @@ public class Sorts {
 	}
     }
 
+    public static void insertionSort(int[] data {
+	    for (int i = 0; i < data.length; i++) {
+		if (data[i] > data[i + 1]) {
+		    int temp = data[i + 1];
+		    for (int j = i
+	    }
+       
+    }
+
     public static void main (String[] args) {
 	int ary[] = new int[5];
 	ary[0] = 64;
@@ -37,7 +46,7 @@ public class Sorts {
 	ary[3] = 22;
 	ary[4] = 11;
 	System.out.println("should print out 11, 12, 22, 25, 64");
-        selectionSort(ary);
+        insertionSort(ary);
 	for (int i = 0; i < ary.length; i++) {
 	    System.out.println(ary[i]);
 	}
@@ -51,7 +60,7 @@ public class Sorts {
 	ary2[6] = 11;
 	ary2[7] = 395;
        	System.out.println("should print out -8394, -2, 11, 34, 58, 93, 395, 432");
-        selectionSort(ary2);
+        insertionSort(ary2);
 	for (int i = 0; i < ary2.length; i++) {
 	    System.out.println(ary2[i]);
 	}
