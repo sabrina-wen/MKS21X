@@ -29,13 +29,23 @@ public class Sorts {
 	}
     }
 
-    public static void insertionSort(int[] data {
-	    for (int i = 0; i < data.length; i++) {
-		if (data[i] > data[i + 1]) {
-		    int temp = data[i + 1];
-		    for (int j = i
+    public static void insertionSort(int[] data) {
+        for (int i = 1; i < data.length; i++) {
+	    // looks at current element
+	    int present = data[i];
+	    // we use j so we can compare w/ present
+	    // if we don't have present, the value at the beginning of the for loop will be changed by the end
+	    int j = i;
+	    while (j > 0 && data[j - 1] > present) {
+		// assuming present element is at index > 0 and prev element > present element
+		data[j] = data[j - 1];
+		// present element = prev element
+		j--;
+		// loops through the elements BEFORE present element to make sure we inserted correctly
 	    }
-       
+	    data[j] = present;
+	    // the element we took out is put back in here
+        }
     }
 
     public static void main (String[] args) {
