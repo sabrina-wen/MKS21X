@@ -48,6 +48,20 @@ public class Sorts {
         }
     }
 
+    public static void bubbleSort (int[] data) {
+	int countdown = data.length - 1;
+	while (countdown > 0) {
+	    for (int i = 0; i < data.length - 1; i++) {
+		if (data[i] > data[i + 1]) {
+		    int temp = data[i];
+		    data[i] = data[i + 1];
+		    data[i + 1] = temp;
+		}
+	    }
+	    countdown--;
+	}
+    }
+
     public static void main (String[] args) {
 	int ary[] = new int[5];
 	ary[0] = 64;
@@ -56,7 +70,7 @@ public class Sorts {
 	ary[3] = 22;
 	ary[4] = 11;
 	System.out.println("should print out 11, 12, 22, 25, 64");
-        insertionSort(ary);
+        bubbleSort(ary);
 	for (int i = 0; i < ary.length; i++) {
 	    System.out.println(ary[i]);
 	}
@@ -70,7 +84,7 @@ public class Sorts {
 	ary2[6] = 11;
 	ary2[7] = 395;
        	System.out.println("should print out -8394, -2, 11, 34, 58, 93, 395, 432");
-        insertionSort(ary2);
+        bubbleSort(ary2);
 	for (int i = 0; i < ary2.length; i++) {
 	    System.out.println(ary2[i]);
 	}
