@@ -31,7 +31,7 @@ public class Sorts {
 
     public static void insertionSort(int[] data) {
         for (int i = 1; i < data.length; i++) {
-	    // looks at current element
+	    // looks at current element (first element bc we assume zeroth element is already sorted
 	    int present = data[i];
 	    // we use j so we can compare w/ present
 	    // if we don't have present, the value at the beginning of the for loop will be changed by the end
