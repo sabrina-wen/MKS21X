@@ -75,7 +75,7 @@ public class Sorts {
 	    System.out.println(ary[i]);
 	}
         int ary2[] = new int[8];
-	ary2[0] = 432;
+	ary2[0] = 58;
 	ary2[1] = -2;
 	ary2[2] = 93;
 	ary2[3] = 34;
@@ -88,6 +88,15 @@ public class Sorts {
 	for (int i = 0; i < ary2.length; i++) {
 	    System.out.println(ary2[i]);
 	}
+
+	int ary3[] = new int[1];
+	ary3[0] = 110;
+	bubbleSort(ary3);
+        
+	for (int i = 0; i < ary3.length; i++) {
+	    System.out.println(ary3[i]);
+	}
+	
     }
 
 }
